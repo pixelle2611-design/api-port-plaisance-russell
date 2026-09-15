@@ -3,8 +3,16 @@ const router = express.Router();
 const usersService = require("../services/users");
 
 /**
- * GET /users/
- * Récupère la liste de tous les utilisateurs.
+ * @swagger
+ * /users:
+ *   get:
+ *     summary: Récupère la liste de tous les utilisateurs
+ *     tags: [Users]
+ *     responses:
+ *       200:
+ *         description: Liste des utilisateurs récupérée avec succès
+ *       500:
+ *         description: Erreur serveur
  */
 router.get("/", async (req, res) => {
     try {
@@ -16,8 +24,25 @@ router.get("/", async (req, res) => {
 });
 
 /**
- * GET /users/:email
- * Récupère les détails d'un utilisateur en particulier.
+ * @swagger
+ * /users/{email}:
+ *   get:
+ *     summary: Récupère les détails d'un utilisateur en particulier
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: email
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Email de l'utilisateur
+ *     responses:
+ *       200:
+ *         description: Utilisateur trouvé
+ *       404:
+ *         description: Utilisateur introuvable
+ *       500:
+ *         description: Erreur serveur
  */
 router.get("/:email", async (req, res) => {
     try {
@@ -33,8 +58,22 @@ router.get("/:email", async (req, res) => {
 });
 
 /**
- * POST /users/
- * Crée un nouvel utilisateur.
+ * @swagger
+ * /users:
+ *   post:
+ *     summary: Crée un nouvel utilisateur
+ *     tags: [Users]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: "#/components/schemas/User"
+ *     responses:
+ *       201:
+ *         description: Utilisateur créé avec succès
+ *       500:
+ *         description: Erreur serveur
  */
 router.post("/", async (req, res) => {
     try {
@@ -46,8 +85,31 @@ router.post("/", async (req, res) => {
 });
 
 /**
- * PUT /users/:email
- * Modifie les détails d'un utilisateur.
+ * @swagger
+ * /users/{email}:
+ *   put:
+ *     summary: Modifie les détails d'un utilisateur
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: email
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Email de l'utilisateur
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: "#/components/schemas/User"
+ *     responses:
+ *       200:
+ *         description: Utilisateur modifié avec succès
+ *       404:
+ *         description: Utilisateur introuvable
+ *       500:
+ *         description: Erreur serveur
  */
 router.put("/:email", async (req, res) => {
     try {
@@ -64,8 +126,25 @@ router.put("/:email", async (req, res) => {
 });
 
 /**
- * DELETE /users/:email
- * Supprime un utilisateur.
+ * @swagger
+ * /users/{email}:
+ *   delete:
+ *     summary: Supprime un utilisateur
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: email
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Email de l'utilisateur
+ *     responses:
+ *       200:
+ *         description: Utilisateur supprimé avec succès
+ *       404:
+ *         description: Utilisateur introuvable
+ *       500:
+ *         description: Erreur serveur
  */
 router.delete("/:email", async (req, res) => {
     try {

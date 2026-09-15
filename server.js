@@ -12,10 +12,12 @@ const reservationsRoutes = require("./routes/reservations");
 const usersRoutes = require("./routes/users");
 
 const app = express();
-const port = 8000;
+const port = process.env.PORT || 8000;
 const authRoutes = require("./routes/auth");
 const verifierToken = require("./middlewares/auth");
 connectToDatabase();
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./swagger");
 
 /**
  * Middleware permettant à Express de comprendre le JSON envoyé
@@ -23,6 +25,10 @@ connectToDatabase();
  */
 app.use(express.json());
 app.use(express.static("public"));
+/**
+ * Route affichant la documentation interactive de l'API (Swagger UI)
+ */
+app.use("/apidoc", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 /**
  * Route de test — répond avec un simple message texte
@@ -37,7 +43,7 @@ app.get("/", (req, res) => {
  */
 app.use("/catways", verifierToken, catwaysRoutes);
 app.use("/catways", verifierToken, reservationsRoutes);
-app.use("/users", verifierToken, usersRoutes);
+app.use("/users", usersRoutes);
 app.use("/", authRoutes);
 app.listen(port, () => {
     console.log(`Serveur démarré sur http://localhost:${port}`);

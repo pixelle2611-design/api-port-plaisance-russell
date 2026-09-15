@@ -4,8 +4,29 @@ const jwt = require("jsonwebtoken");
 const usersService = require("../services/users");
 
 /**
- * POST /login
- * Authentifie un utilisateur et renvoie un token JWT.
+ * @swagger
+ * /login:
+ *   post:
+ *     summary: Authentifie un utilisateur et renvoie un token JWT
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Authentification réussie, token renvoyé
+ *       401:
+ *         description: Email ou mot de passe incorrect
+ *       500:
+ *         description: Erreur serveur
  */
 router.post("/login", async (req, res) => {
     try {
@@ -36,8 +57,14 @@ router.post("/login", async (req, res) => {
 });
 
 /**
- * GET /logout
- * Déconnecte l'utilisateur (côté client : suppression du token).
+ * @swagger
+ * /logout:
+ *   get:
+ *     summary: Déconnecte l'utilisateur
+ *     tags: [Auth]
+ *     responses:
+ *       200:
+ *         description: Déconnexion réussie
  */
 router.get("/logout", (req, res) => {
     res.status(200).json({ message: "Déconnexion réussie" });
