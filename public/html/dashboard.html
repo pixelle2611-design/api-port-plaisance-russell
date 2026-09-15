@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Tableau de bord — Port de Plaisance Russell</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/dashboard.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Tableau de bord</h1>
+        <nav>
+            <a href="catways.html">Catways</a>
+            <a href="reservations.html">Réservations</a>
+            <a href="users.html">Utilisateurs</a>
+            <a href="/apidoc">Documentation API</a>
+            <button id="logoutBtn">Déconnexion</button>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Informations</h2>
+            <p>Connecté en tant que : <span id="userName"></span> (<span id="userEmail"></span>)</p>
+            <p>Date du jour : <span id="todayDate"></span></p>
+        </section>
+
+        <section>
+            <h2>Réservations en cours</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Catway</th>
+                        <th>Client</th>
+                        <th>Bateau</th>
+                        <th>Début</th>
+                        <th>Fin</th>
+                    </tr>
+                </thead>
+                <tbody id="reservationsTableBody"></tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

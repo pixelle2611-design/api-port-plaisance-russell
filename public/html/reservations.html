@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Réservations — Port de Plaisance Russell</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/reservations.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Gestion des réservations</h1>
+        <nav>
+            <a href="dashboard.html">Tableau de bord</a>
+            <a href="catways.html">Catways</a>
+            <a href="users.html">Utilisateurs</a>
+            <a href="/apidoc">Documentation API</a>
+            <button id="logoutBtn">Déconnexion</button>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Ajouter une réservation</h2>
+            <form id="createForm">
+                <label for="catwayNumber">Numéro de catway</label>
+                <input type="number" id="catwayNumber" name="catwayNumber" required>
+
+                <label for="clientName">Nom du client</label>
+                <input type="text" id="clientName" name="clientName" required>
+
+                <label for="boatName">Nom du bateau</label>
+                <input type="text" id="boatName" name="boatName" required>
+
+                <label for="startDate">Date de début</label>
+                <input type="date" id="startDate" name="startDate" required>
+
+                <label for="endDate">Date de fin</label>
+                <input type="date" id="endDate" name="endDate" required>
+
+                <button type="submit">Créer</button>
+            </form>
+            <p id="createError" role="alert"></p>
+        </section>
+
+        <section>
+            <h2>Réservations par catway</h2>
+            <label for="catwaySelect">Choisir un catway</label>
+            <select id="catwaySelect"></select>
+            <div id="reservationsList"></div>
+        </section>
+    </main>
+</body>
+</html>

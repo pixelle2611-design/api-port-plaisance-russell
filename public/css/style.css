@@ -1,0 +1,76 @@
+/**
+ * Feuille de style principale — Port de Plaisance Russell.
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f4f7fa;
+    color: #1a2b3c;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #0b3d5c;
+    color: #ffffff;
+    padding: 1.5rem 2rem;
+}
+
+header h1 {
+    font-size: 1.8rem;
+}
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+    color: #0b3d5c;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-width: 400px;
+}
+
+label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+input,
+select,
+textarea {
+    padding: 0.6rem;
+    border: 1px solid #ccd6dd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #0b3d5c;
+    color: #ffffff;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    
