@@ -28,7 +28,7 @@ loginForm.addEventListener("submit", async (event) => {
 
         localStorage.setItem("token", data.token);
         localStorage.setItem("userEmail", email);
-        window.location.href = "dashboard.html";
+        window.location.href = "/html/dashboard.html";
 
     } catch (error) {
         loginError.textContent = "Erreur serveur, réessayez plus tard.";
